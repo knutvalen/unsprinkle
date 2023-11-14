@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+// Supports weights 100-900
+import '@fontsource-variable/inter';
 
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -50,7 +52,7 @@ table {
 
 * {
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter Variable', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-synthesis: none;
 }
