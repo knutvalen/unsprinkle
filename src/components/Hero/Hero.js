@@ -2,9 +2,29 @@ import React from 'react';
 import styled from 'styled-components/macro';
 
 const Hero = () => {
+  const src = "/images/hero-img.jpg";
+
   return (
     <Wrapper>
-      <HeroImage src="/images/hero-img.jpg" />
+      <HeroImage>
+        <source
+          type="image/avif"
+          srcSet={`
+            ${src.replace('.jpg', '.avif')} 1x,
+            ${src.replace('.jpg', '@2x.avif')} 2x,
+            ${src.replace('.jpg', '@3x.avif')} 3x,
+          `}
+        />
+        <source
+          type="image/jpeg"
+          srcSet={`
+            ${src} 1x,
+            ${src.replace('.jpg', '@2x.jpg')} 2x,
+            ${src.replace('.jpg', '@3x.jpg')} 3x,
+          `}
+        />
+        <img alt="" src={src} />
+      </HeroImage>
       <Swoop src="/swoop.svg" />
     </Wrapper>
   );
@@ -20,7 +40,7 @@ const Wrapper = styled.section`
   background: hsl(0deg 0% 1%);
 `;
 
-const HeroImage = styled.img`
+const HeroImage = styled.picture`
   display: block;
   width: 500px;
   height: 500px;
